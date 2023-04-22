@@ -64,14 +64,13 @@ const Header = ({darkMode}) => {
                                 CBR Labs
                             </Typography>
                         </Container>
-                        <Container style={{ marginTop: 10 }}>
+                        <Container style={{ marginTop: 20 }}>
                             <Typography variant="h5" component="h2">
                                 <Typewriter
                                     options={{
                                         strings: [
                                             'Full Stack Development',
-                                            'Digital Solutions',
-                                            'App & Design',
+                                            'Software engineer',
                                         ],
                                         autoStart: true,
                                         loop: true,
@@ -80,7 +79,7 @@ const Header = ({darkMode}) => {
                                 />
                             </Typography>
                         </Container>
-                        <Container style={{ marginTop: 10 }}>
+                        <Container style={{ marginTop: 20 }}>
                             <a href="https://github.com/dimitrisCBR" style={{color:themeConfig.palette.text.primary}}>
                                 <FontAwesomeIcon icon={faGithub} size="2x" className="fa" />
                             </a>
@@ -91,7 +90,7 @@ const Header = ({darkMode}) => {
                                 <FontAwesomeIcon icon={faGoogle} size="2x" className="fa"/>
                             </a>
                         </Container>
-                        <Container style={{ margin: 10 }}>
+                        <Container style={{ margin: 20 }}>
                             <MaterialThemeSwitcher checked={theme === 'dark'} onChange={handleToggleTheme} />
                         </Container>
                     </div>

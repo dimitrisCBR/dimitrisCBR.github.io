@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import GithubProjectView from './GithubProject';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import GithubProject2 from './GithubProject2';
@@ -26,9 +25,10 @@ const Projects = () => {
 
     const fetchProjectInfo = async () => {
       const repoUrls = [
-        'https://api.github.com/repos/dimitrisCBR/AnimatedLoadingText',
+        'https://api.github.com/repos/dimitrisCBR/GradientTextView',
         'https://api.github.com/repos/dimitrisCBR/Kotlin-Gallery',
         'https://api.github.com/repos/dimitrisCBR/BehanceSampleApp',
+        'https://api.github.com/repos/dimitrisCBR/AnimatedLoadingText',
       ];
       const requests = repoUrls.map(url => fetch(url));
       const responses = await Promise.all(requests);

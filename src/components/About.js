@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Typography, List, ListItem, ListItemAvatar, ListItemText } from '@material-ui/core';
-import { Code, Devices, SettingsRemote } from '@material-ui/icons';
+import { Avatar, Typography, List, ListItem, ListItemAvatar, ListItemText, Link } from '@material-ui/core';
+import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
+import WebIcon from '@mui/icons-material/Web';
+import ApiIcon from '@mui/icons-material/Api';
 import "./Commons.css"
+import TechIconGrid from "./TechIconGrid";
 
 const useStyles = makeStyles(theme => ({
   aboutPage: {
@@ -10,15 +13,13 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: theme.spacing(4),
+
   },
   aboutSection: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: theme.spacing(4),
-    marginLeft: theme.spacing(5),
-    marginRight: theme.spacing(5)
   },
   aboutAvatar: {
     width: theme.spacing(20),
@@ -35,13 +36,14 @@ const useStyles = makeStyles(theme => ({
   },
   techSkillsTitle: {
     fontWeight: 'bold',
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
+    marginTop: theme.spacing(2)
   },
   techSkillsList: {
     display: 'flex',
   },
   techSkillsListItem: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
 }));
 
@@ -85,37 +87,40 @@ const About = () => {
         <div className={classes.aboutPage} >
           <div className={classes.aboutSection}>
             <Avatar className={classes.aboutAvatar} alt="Profile" src="https://avatars.githubusercontent.com/u/12274068?v=4" />
-            <div style={{ width: '80%%' }}>
+            <div>
               <Typography variant="h2" component="h2">
                 <span role="img" aria-label="wave" style={{ margin: 10 }}>👋</span>
-                Hi, we are CBR
+                Hi, I am dimitris CBR
               </Typography>
-              <Typography variant="subtitle1" style={{ margin: 20 }}>We are a full-stack development & design team based in Athens Greece who loves to make apps.
-                <br/>Web, mobile or REST APIs and third-party integrations. We deliver quality</Typography>
+              <Typography variant="subtitle1" style={{ margin: 20 }}>I am a full-stack developer based in Athens Greece.
+                <br />I make apps and  currently work with <Link href="https://www.futurae.com/">Futurae</Link>
+              </Typography>
             </div>
           </div>
           <Typography variant="h5" className={classes.techSkillsTitle}>Tech Skills</Typography>
           <div className={classes.techSkills}>
             <List className={classes.techSkillsList}>
               <ListItem className={classes.techSkillsListItem}>
-                <ListItemAvatar><Devices /></ListItemAvatar>
-                <ListItemText primary="Web Development" />
-              </ListItem>
-              <ListItem className={classes.techSkillsListItem}>
-                <ListItemAvatar><Code /></ListItemAvatar>
+                <ListItemAvatar><MobileFriendlyIcon /></ListItemAvatar>
                 <ListItemText primary="Mobile Development" />
               </ListItem>
               <ListItem className={classes.techSkillsListItem}>
-                <ListItemAvatar><SettingsRemote /></ListItemAvatar>
+                <ListItemAvatar><WebIcon /></ListItemAvatar>
+                <ListItemText primary="Web Development" />
+              </ListItem>
+
+              <ListItem className={classes.techSkillsListItem}>
+                <ListItemAvatar><ApiIcon /></ListItemAvatar>
                 <ListItemText primary="API Development" />
               </ListItem>
             </List>
           </div>
+          <div>
+            <Typography variant="h5" className={classes.techSkillsTitle}>Frameworks & Languages</Typography>
+            <TechIconGrid />
+          </div>
         </div>
-
       </div>
-
-
     </div>
   );
 };

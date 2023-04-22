@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     paper: {
         height: 200,
     },
+    infoItem : {
+        margin: 10,
+    }
 }));
 
 const GithubProject2 = ({ project }) => {
@@ -23,33 +26,39 @@ const GithubProject2 = ({ project }) => {
                 <CardActionArea href={project.html_url} className={classes.paper}>
                     <CardContent>
                         <Container style={{ display: 'flex', flexDirection: 'column' }}>
-                            <Container style={{ display: 'flex', flexDirection: 'row' }}>
+                            <Container style={{ display: 'flex', flexDirection: 'row' }} >
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    {project.name}
+                                </Typography>
+                            </Container>
+                            <Container style={{ display: 'flex', flexDirection: 'row', height: 80 }} >
+                                <Typography variant="subtitle" component="p" align="left" sx={{
+                                    display: '-webkit-box',
+                                    overflow: 'hidden',
+                                    WebkitBoxOrient: 'vertical',
+                                    WebkitLineClamp: 3,
+                                }}>  {project.description}
+                                </Typography>
+                            </Container>
+
+                            <Container style={{ display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center', justifyContent:'flex-start'}} >
                                 <Avatar
                                     src={project.owner.avatar_url}
-                                    style={{ width: 50, height: 50, margin: 10 }} />
-
-                                <Container style={{ display: 'flex', flexDirection: 'column' }}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {project.name}
-                                    </Typography>
-                                    <Typography variant="subtitle" component="p" sx={{
-                                        display: '-webkit-box',
-                                        overflow: 'hidden',
-                                        maxWidth: '300',
-                                        WebkitBoxOrient: 'vertical',
-                                        WebkitLineClamp: 3,
-                                    }}>  {project.description}
-                                    </Typography>
-                                </Container>
-                            </Container>
-                            <Container style={{ display: 'flex', flexDirection: 'row'}} >
+                                    className={classes.infoItem}
+                                    style={{ width: 30, height: 30 }} />
                                 <StarIcon />
-                                <Typography variant="h5">
+                                <Typography variant="subtitle1">
                                     {project.forks_count}
                                 </Typography>
                                 <AltRouteIcon style={{ marginLeft: '20' }} />
-                                <Typography variant="h5">
+                                <Typography variant="subtitle1">
                                     {project.forks_count}
+                                </Typography>
+                                <Typography variant="subtitle1" className={classes.infoItem}>
+                                    Language:
+                                </Typography>
+                                <Typography variant="h6" fontWeight="bold">
+                                 {project.language}
                                 </Typography>
                             </Container>
                         </Container>
