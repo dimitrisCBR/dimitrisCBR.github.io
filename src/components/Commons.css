@@ -1,0 +1,27 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100vh;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.bottom {
+    justify-self: center;
+    margin-bottom: 10vh;
+}
+
+#socialMediaIcons 
+a:link .fa, #socialMediaIcons a:visited .fa  {
+    margin: 10px;
+}
+.fa {
+    padding-left: 10px;
+    position: relative;
+}
