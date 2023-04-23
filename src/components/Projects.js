@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import GithubProject2 from './GithubProject2';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import GithubProject from './GithubProject';
 
 const useStyles = makeStyles(theme => ({
   projects: {
@@ -14,11 +14,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
 
+  const theme = useTheme();
+
+  console.log(`Project theme palette type: ${JSON.stringify(theme.palette.type)}`)
+  
+  const [projects, setProjects] = useState([]);
   const classes = useStyles();
 
   useEffect(() => {
@@ -33,18 +35,8 @@ const Projects = () => {
       const requests = repoUrls.map(url => fetch(url));
       const responses = await Promise.all(requests);
       const data = await Promise.all(responses.map(response => response.json()));
-      console.log(data); // or do something else with the data
       setProjects(data)
     };
-
-    
-    // const fetchProjects = async () => {
-    //   const response = await fetch('https://api.github.com/users/dimitrisCBR/repos?per_page=4&type=public&language=&sort=stargazers');
-    //   const data = await response.json();
-    //   setProjects(data);
-    // };
-    
-    // fetchProjects();
 
     fetchProjectInfo()
   }, []);
@@ -63,7 +55,7 @@ const Projects = () => {
         <Row style={{ marginBottom: 50, marginTop: 100 }}>
           <Grid container spacing={5}>
             {projects.map((project) => (
-              <GithubProject2 project={project} />
+              <GithubProject project={project} themeConfig={theme} key={project.id} />
             ))}
           </Grid>
         </Row>

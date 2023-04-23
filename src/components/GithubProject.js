@@ -5,23 +5,23 @@ import "./GithubProject.css"
 import { Container } from "react-bootstrap";
 import StarIcon from '@mui/icons-material/Star';
 import AltRouteIcon from '@mui/icons-material/AltRoute';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
         height: 200,
     },
-    infoItem : {
+    infoItem: {
         margin: 10,
-    }
+    },
 }));
 
-const GithubProject2 = ({ project }) => {
+const GithubProject = ({ project }) => {
 
     const classes = useStyles();
-
+    const theme = useTheme();
     return (
-        <Grid item xs={12} sm={12} md={4} key={project.id}>
+        <Grid item xs={12} sm={12} md={4}>
             <Paper variant="outlined" className={classes.paper}>
                 <CardActionArea href={project.html_url} className={classes.paper}>
                     <CardContent>
@@ -32,7 +32,7 @@ const GithubProject2 = ({ project }) => {
                                 </Typography>
                             </Container>
                             <Container style={{ display: 'flex', flexDirection: 'row', height: 80 }} >
-                                <Typography variant="subtitle" component="p" align="left" sx={{
+                                <Typography component="p" align="left" className={classes.text} sx={{
                                     display: '-webkit-box',
                                     overflow: 'hidden',
                                     WebkitBoxOrient: 'vertical',
@@ -41,7 +41,7 @@ const GithubProject2 = ({ project }) => {
                                 </Typography>
                             </Container>
 
-                            <Container style={{ display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center', justifyContent:'flex-start'}} >
+                            <Container style={{ display: 'flex', flexDirection: 'row', marginTop: 10, alignItems: 'center', justifyContent: 'flex-start' }} >
                                 <Avatar
                                     src={project.owner.avatar_url}
                                     className={classes.infoItem}
@@ -58,7 +58,7 @@ const GithubProject2 = ({ project }) => {
                                     Language:
                                 </Typography>
                                 <Typography variant="h6" fontWeight="bold">
-                                 {project.language}
+                                    {project.language}
                                 </Typography>
                             </Container>
                         </Container>
@@ -69,4 +69,4 @@ const GithubProject2 = ({ project }) => {
     );
 };
 
-export default GithubProject2;
+export default GithubProject;

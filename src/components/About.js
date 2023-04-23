@@ -4,8 +4,8 @@ import { Avatar, Typography, List, ListItem, ListItemAvatar, ListItemText, Link 
 import MobileFriendlyIcon from '@mui/icons-material/MobileFriendly';
 import WebIcon from '@mui/icons-material/Web';
 import ApiIcon from '@mui/icons-material/Api';
-import "./Commons.css"
 import TechIconGrid from "./TechIconGrid";
+import "./Commons.css"
 
 const useStyles = makeStyles(theme => ({
   aboutPage: {
