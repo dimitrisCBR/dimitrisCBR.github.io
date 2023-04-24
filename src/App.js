@@ -4,10 +4,11 @@ import { CssBaseline } from "@mui/material";
 import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import CustomPaper from "./components/CustomPaper";
 
 function App() {
 
-  let defaultMode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)  ? "dark" : "light"
+  let defaultMode = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? "dark" : "light"
 
   const [darkMode, setDarkMode] = useState(defaultMode);
 
@@ -17,7 +18,7 @@ function App() {
 
   const theme = createTheme({
     palette: {
-      mode: darkMode ? "dark" : "light",
+      mode: "dark",
     },
   });
 

@@ -17,8 +17,6 @@ const useStyles = makeStyles(theme => ({
   },
   aboutSection: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     marginBottom: theme.spacing(4),
   },
   aboutAvatar: {
@@ -115,7 +113,7 @@ const About = () => {
               </ListItem>
             </List>
           </div>
-          <div>
+          <div className={classes.techSkills} style={{ flexDirection: 'column' }}>
             <Typography variant="h5" className={classes.techSkillsTitle}>Frameworks & Languages</Typography>
             <TechIconGrid />
           </div>

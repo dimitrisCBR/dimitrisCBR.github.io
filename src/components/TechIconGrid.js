@@ -11,8 +11,8 @@ import {
 import { FaJava, FaApple, FaNodeJs, FaAndroid, FaReact, FaHtml5 } from "react-icons/fa"
 
 const iconStyle = {
-  height : 50, 
-  width : 50
+  height : 30, 
+  width : 30
 }
 const TechIconGrid = () => {
   const icons = [
@@ -31,10 +31,13 @@ const TechIconGrid = () => {
   ];
 
   return (
-    <Grid container spacing={2} style={{ margin: 20 }}>
+    <Grid container spacing={2} style={{ margin: 20 }} justifyContent="center" alignItems="center">
       {icons.map((item, index) => (
         <Grid key={index} item xs={3}>
-          {item.icon}<p>{item.name}</p>
+          <div style={{ textAlign: 'center' }}>
+            {item.icon}
+            <p>{item.name}</p>
+          </div>
         </Grid>
       ))}
     </Grid>

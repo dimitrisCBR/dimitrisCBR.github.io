@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         height: 200,
     },
     infoItem: {
-        margin: 10,
+        margin: theme.spacing(1),
     },
 }));
 
