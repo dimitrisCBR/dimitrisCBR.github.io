@@ -4,7 +4,6 @@ import { CssBaseline } from "@mui/material";
 import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import CustomPaper from "./components/CustomPaper";
 
 function App() {
 
@@ -18,7 +17,7 @@ function App() {
 
   const theme = createTheme({
     palette: {
-      mode: "dark",
+      mode: darkMode ? "dark" : "light",
     },
   });
 
