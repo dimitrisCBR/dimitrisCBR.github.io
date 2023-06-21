@@ -14,6 +14,7 @@ const iconStyle = {
   height : 30, 
   width : 30
 }
+
 const TechIconGrid = () => {
   const icons = [
     { name: "Kotlin", icon: <SiKotlin style={iconStyle}/> },
@@ -31,9 +32,9 @@ const TechIconGrid = () => {
   ];
 
   return (
-    <Grid container spacing={2} style={{ margin: 20 }} justifyContent="center" alignItems="center">
+    <Grid container spacing={1} style={{ margin: 20 }} justifyContent="center" alignItems="center">
       {icons.map((item, index) => (
-        <Grid key={index} item xs={3}>
+        <Grid key={index} item xs={6} sm={4} md={3} lg={2}>
           <div style={{ textAlign: 'center' }}>
             {item.icon}
             <p>{item.name}</p>

@@ -4,6 +4,7 @@ import { CssBaseline } from "@mui/material";
 import Header from "./components/Header";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import ParticlesComponent from "./components/ParticlesBackground";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Header isDarkDefault={darkMode} toggleCallback={handleModeChange} />
           <About />
           <Projects />
+          <ParticlesComponent isDarkMode={darkMode} />
         </CssBaseline>
       </ThemeProvider>
     </div >

@@ -1,30 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Container } from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import GithubProject from './GithubProject';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   projects: {
     display: 'flex',
     flexDirection: 'column',
     padding: theme.spacing(4),
-    alignContent: 'top',
-    justifyContent: 'top',
-  }
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heading: {
+    marginBottom: theme.spacing(4),
+    marginTop: theme.spacing(4),
+  },
+  projectContainer: {
+    marginBottom: theme.spacing(5),
+    marginTop: theme.spacing(10),
+  },
 }));
 
 const Projects = () => {
-
   const theme = useTheme();
-
-  console.log(`Project theme palette type: ${JSON.stringify(theme.palette.type)}`)
-  
   const [projects, setProjects] = useState([]);
   const classes = useStyles();
 
   useEffect(() => {
-
     const fetchProjectInfo = async () => {
       const repoUrls = [
         'https://api.github.com/repos/dimitrisCBR/GradientTextView',
@@ -32,33 +34,28 @@ const Projects = () => {
         'https://api.github.com/repos/dimitrisCBR/BehanceSampleApp',
         'https://api.github.com/repos/dimitrisCBR/AnimatedLoadingText',
       ];
-      const requests = repoUrls.map(url => fetch(url));
+      const requests = repoUrls.map((url) => fetch(url));
       const responses = await Promise.all(requests);
-      const data = await Promise.all(responses.map(response => response.json()));
-      setProjects(data)
+      const data = await Promise.all(responses.map((response) => response.json()));
+      setProjects(data);
     };
 
-    fetchProjectInfo()
+    fetchProjectInfo();
   }, []);
 
   return (
-
     <div className={classes.projects}>
-      <Container id="projects" className="py-5" style={{ marginLeft: 50, marginRight: 50 }}>
-        <Row>
-          <Col md={12} style={{ marginBottom: 50, marginTop: 50 }}>
-            <Typography variant="h1" component="h1">
-              Projects
-            </Typography>
-          </Col>
-        </Row>
-        <Row style={{ marginBottom: 50, marginTop: 100 }}>
-          <Grid container spacing={5}>
-            {projects.map((project) => (
-              <GithubProject project={project} themeConfig={theme} key={project.id} />
-            ))}
-          </Grid>
-        </Row>
+      <Container id="projects" maxWidth="md" className={classes.projectContainer}>
+        <Typography variant="h2" component="h2" className={classes.heading}>
+          Projects
+        </Typography>
+        <Grid container spacing={5}>
+          {projects.map((project) => (
+            <Grid item xs={12} sm={6} md={6} key={project.id}>
+              <GithubProject project={project} themeConfig={theme} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </div>
   );
